@@ -1,0 +1,48 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /IMS/
+
+# Define BASE URL for PHP
+SetEnv BASE_URL /IMS/
+
+# -----------------------------------
+# 2. Dynamic routes (put FIRST always)
+# -----------------------------------
+RewriteRule ^pages/edit-brand/([^/]+)/?$ pages/edit-brand.php?id=$1 [L,QSA]
+RewriteRule ^pages/edit-category/([^/]+)/?$ pages/edit-category.php?id=$1 [L,QSA]
+
+# -----------------------------------
+# 1. Default page (/IMS/)
+# -----------------------------------
+RewriteRule ^$ pages/dashboard.php [L]
+
+# -----------------------------------
+# 2. Auth routes (FIX)
+# /IMS/auth/auth-login → auth/auth-login.php
+# -----------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^auth/([a-zA-Z0-9\-_]+)/?$ auth/$1.php [L,QSA]
+
+
+# -----------------------------------
+# 3. صفحات داخل /pages بدون .php
+# Example: /IMS/pages/add-category
+# -----------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^pages/([a-zA-Z0-9\-_]+)/?$ pages/$1.php [L,QSA]
+
+</IfModule>
+
+# -----------------------------------
+# Security
+# -----------------------------------
+Options -Indexes
+
+# -----------------------------------
+# Custom Error Pages
+# -----------------------------------
+ErrorDocument 403 /IMS/pages/403.php
+ErrorDocument 404 /IMS/pages/404.php
+ErrorDocument 500 /IMS/pages/500.php
