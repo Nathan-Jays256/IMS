@@ -55,7 +55,7 @@ class Auth
     public function registerAccount($data)
     {
         // Check for duplicate email
-        $checkEmail = $this->conn->prepare("SELECT user_id FROM users WHERE email = ?");
+        $checkEmail = $this->conn->prepare("SELECT usr_id FROM users WHERE email = ?");
         $checkEmail->bind_param("s", $data['email']);
         $checkEmail->execute();
         $checkEmail->store_result();
@@ -65,7 +65,7 @@ class Auth
             $checkEmail->close();
             // Generate unique user ID
             // Insert new user
-            $stmt = $this->conn->prepare("INSERT INTO users (user_id, username, email, userRole, password, reset_token, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())");
+            $stmt = $this->conn->prepare("INSERT INTO users (usr_id, username, email, userRole, password, reset_token, date_created) VALUES (?, ?, ?, ?, ?, ?, NOW())");
             $stmt->bind_param("ssssss", $data['user_id'], $data['username'], $data['email'], $data['userRole'], $data['password'], $data['reset_token']);
 
             if ($stmt->execute()) {
