@@ -34,7 +34,7 @@ class Auth
     public function fetchUser($user_id)
     {
         try {
-            $sql = "SELECT user_id, username, email, password, userRole FROM users WHERE user_id = ? LIMIT 1";
+            $sql = "SELECT usr_id, username, email, password, userRole FROM users WHERE usr_id = ? LIMIT 1";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("s", $user_id);
@@ -85,15 +85,16 @@ class Auth
             $stmt->execute();
 
             $result = $stmt->get_result();
+            // print_r($result);
 
             if ($result->num_rows === 1) {
                 $user = $result->fetch_assoc();
                 // Verify password
                 if (password_verify($data['password'], $user['password'])) {
-                    session_start();
+
                     $_SESSION["isLoggedin"] = true;
-                    $_SESSION["user_id"] = $user['user_id'];
-                    $_SESSION["username"] = $user['name'];
+                    $_SESSION["user_id"] = $user['usr_id'];
+                    $_SESSION["username"] = $user['username'];
                     $stmt->close();
                     return true;
                 } else {

@@ -57,12 +57,17 @@ class SysFuncs
             'email' => $this->getValues('email'),
             'password' => $this->getValues('password'),
         ];
-        print_r($data);
+        // print_r($data);
         $auth = new Auth($this->conn);
-        $auth->authenticate($data);
-        $_SESSION['success'] = true;
-        $_SESSION['message'] = "Logged in successfully.";
-        header("Location: "  . "../");
+        if ($auth->authenticate($data)) {
+            $_SESSION['success'] = true;
+            $_SESSION['message'] = "Logged in successfully.";
+            header("Location: "  . "../");
+        } else {
+            $_SESSION['success'] = false;
+            $_SESSION['message'] = "Login failed.";
+            header("Location: "  . "../");
+        }
     }
 
     function registerAction()
