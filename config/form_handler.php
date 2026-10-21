@@ -35,6 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sys->addCategoryAction();
             break;
 
+        case 'add_product':
+            $sys->addProductAction();
+            break;
+
         default:
             echo json_encode(['success' => false, 'message' => 'Invalid action']);
     }

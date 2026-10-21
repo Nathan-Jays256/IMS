@@ -31,9 +31,6 @@
                         </tbody>
                     </table>
                     <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
-                    <button type="button" class="btn btn-sm btn-primary sql">Export SQL</button>
-                    <button type="button" class="btn btn-sm btn-primary txt">Export TXT</button>
-                    <button type="button" class="btn btn-sm btn-primary json">Export JSON</button>
                 </div>
             </div><!--end card-body-->
         </div><!--end card-->

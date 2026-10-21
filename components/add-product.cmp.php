@@ -22,7 +22,7 @@
                                 <div class="row">
                                     <!-- Product Name -->
                                     <div class="col-md-12 mb-3">
-                                        <label class="form-label">Product Name</label>
+                                        <label class="form-label">Product Name / Model</label>
                                         <input type="text" name="product_name" class="text-uppercase form-control" placeholder="Enter product name" required>
                                     </div>
 
@@ -47,13 +47,13 @@
                                     </div>
 
                                     <!-- Unit Price -->
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mt-3">
                                         <label class="form-label">Unit Price</label>
                                         <input type="number" step="0.01" name="unit_price" class="form-control  text-uppercase" placeholder="0.00" required>
                                     </div>
 
                                     <!-- Dimensions -->
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mt-3">
                                         <label class="form-label">Dimensions</label>
                                         <input type="text" name="dimensions" class="form-control text-uppercase" placeholder="e.g. 10x20x30 cm">
                                     </div>

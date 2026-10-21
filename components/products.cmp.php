@@ -1,3 +1,8 @@
+<?php
+$prod = $sys->fetchProducts();
+
+?>
+
 <div class="row justify-content-center">
     <div class="col-12">
         <div class="card">
@@ -13,27 +18,29 @@
                     <table class="table datatable" id="datatable_2">
                         <thead class="">
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
-                                <th>Ext.</th>
-                                <th>City</th>
-                                <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
-                                <th>Completion</th>
+                                <th>Category</th>
+                                <th>Brand</th>
+                                <th>Quantity</th>
+                                <th data-type="date" data-format="YYYY/DD/MM">Purchase Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Unity Pugh</td>
-                                <td>9958</td>
-                                <td>Curicó</td>
-                                <td>2005/02/11</td>
-                                <td>37%</td>
-                            </tr>
+                            <?php foreach ($prod as $product): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($product['product_id']) ?></td>
+                                    <td><b class="text-uppercase"><?= htmlspecialchars($product['name']) ?></b></td>
+                                    <td><?= htmlspecialchars($product['cat_name']) ?></td>
+                                    <td><?= htmlspecialchars($product['brand_name']) ?></td>
+                                    <td><?= htmlspecialchars($product['quantity']) ? htmlspecialchars($product['quantity']) : 0 ?></td>
+                                    <td><?= date("Y/m/d", strtotime($product['date_created'])) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
-                    <button type="button" class="btn btn-sm btn-primary sql">Export SQL</button>
-                    <button type="button" class="btn btn-sm btn-primary txt">Export TXT</button>
-                    <button type="button" class="btn btn-sm btn-primary json">Export JSON</button>
+                    <button type="button" class="btn btn-sm btn-primary csv">Export PDF</button>
                 </div>
             </div><!--end card-body-->
         </div><!--end card-->

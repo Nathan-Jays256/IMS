@@ -23,7 +23,7 @@
                                         Save Category
                                     </button>
                                     </button>
-                                    <a href="<?= BASE_URL ?>brands" class="btn btn-secondary">
+                                    <a href="<?= BASE_URL ?>pages/brands" class="btn btn-secondary">
                                         Edit Categories
                                     </a>
                                 </div>

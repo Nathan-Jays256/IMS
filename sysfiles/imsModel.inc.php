@@ -98,5 +98,19 @@ class ImsModel
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAllProducts()
+    {
+        $sql = "SELECT p.*,b.name as brand_name,c.name as cat_name FROM products p LEFT JOIN brands b ON p.brand_id = b.brand_id
+            LEFT JOIN product_categories c ON p.cat_id = c.cat_id";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+
+        return $products;
+    }
+
     // =========================================================================================
 }

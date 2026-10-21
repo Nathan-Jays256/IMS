@@ -30,7 +30,7 @@ $user = $sys->fetchUser($user_id);
 
                         <!-- Alert Messages -->
                         <?php
-                        print_r($_SESSION['isLoggedIn']);
+                        // print_r($_SESSION['isLoggedIn']);
 
                         $type = null;
                         $message = null;

@@ -129,22 +129,23 @@ class SysFuncs
                 $_SESSION["message"] = "Error updating brand: " . $imsModel->conn->error;
                 header('Location: ../pages/brands');
             }
-        }
-        $data = [
-            'brand_id' => $this->generateId('BRD', 6),
-            'name' => $this->getValues('brand_name'),
-        ];
-        $imsModel = new ImsModel($this->conn);
-        if ($imsModel->addBrand($data)) {
-            session_start();
-            $_SESSION["success"] = true;
-            $_SESSION["message"] = "Brand added successfully";
-            header('Location: ../pages/add-brand');
         } else {
-            session_start();
-            $_SESSION["success"] = true;
-            $_SESSION["message"] = "Error adding brand: " . $imsModel->conn->error;
-            header('Location: ../pages/add-brand');
+            $data = [
+                'brand_id' => $this->generateId('BRD', 6),
+                'name' => $this->getValues('brand_name'),
+            ];
+            $imsModel = new ImsModel($this->conn);
+            if ($imsModel->addBrand($data)) {
+                session_start();
+                $_SESSION["success"] = true;
+                $_SESSION["message"] = "Brand added successfully";
+                header('Location: ../pages/add-brand');
+            } else {
+                session_start();
+                $_SESSION["success"] = true;
+                $_SESSION["message"] = "Error adding brand: " . $imsModel->conn->error;
+                header('Location: ../pages/add-brand');
+            }
         }
     }
 
@@ -212,29 +213,29 @@ class SysFuncs
                 $_SESSION["message"] = "Error updating product: " . $imsModel->conn->error;
                 header('Location: ../pages/products');
             }
-        }
-
-        $data = [
-            'product_id' => $this->generateId('PRD', 6),
-            'p_name' => $this->getValues('product_name'),
-            'brand_id' => $this->getValues('brand_id'),
-            'cat_id' => $this->getValues('category_id'),
-            'unit_price' => $this->getValues('unit_price'),
-            'dimensions' => $this->getValues('dimensions'),
-            'description' => $this->getValues('description'),
-            'quantity' => null,
-        ];
-        $imsModel = new ImsModel($this->conn);
-        if ($imsModel->addProduct($data)) {
-            session_start();
-            $_SESSION["success"] = true;
-            $_SESSION["message"] = "Product added successfully";
-            header('Location: ../pages/add-product');
         } else {
-            session_start();
-            $_SESSION["success"] = true;
-            $_SESSION["message"] = "Error adding product: " . $imsModel->conn->error;
-            header('Location: ../pages/add-product');
+            $data = [
+                'product_id' => $this->generateId('PRD', 6),
+                'p_name' => $this->getValues('product_name'),
+                'brand_id' => $this->getValues('brand_id'),
+                'cat_id' => $this->getValues('cat_id'),
+                'unit_price' => $this->getValues('unit_price'),
+                'dimensions' => $this->getValues('dimensions'),
+                'description' => $this->getValues('description'),
+                'quantity' => null,
+            ];
+            $imsModel = new ImsModel($this->conn);
+            if ($imsModel->addProduct($data)) {
+                session_start();
+                $_SESSION["success"] = true;
+                $_SESSION["message"] = "Product added successfully";
+                header('Location: ../pages/add-product');
+            } else {
+                session_start();
+                $_SESSION["success"] = true;
+                $_SESSION["message"] = "Error adding product: " . $imsModel->conn->error;
+                header('Location: ../pages/add-product');
+            }
         }
     }
 
@@ -267,5 +268,11 @@ class SysFuncs
     {
         $imsModel = new ImsModel($this->conn);
         return $imsModel->getBrandsForProductForm();
+    }
+
+    function fetchProducts()
+    {
+        $imsModel = new ImsModel($this->conn);
+        return $imsModel->getAllProducts();
     }
 }
