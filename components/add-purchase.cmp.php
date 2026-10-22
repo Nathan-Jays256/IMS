@@ -20,20 +20,19 @@ $prod = $sys->fetchProducts();
 
                                 <div class="row">
                                     <!-- Product Name -->
-                                    <div class="col-md-12 mb-3">
-                                        <label class="form-label">Purchase Company</label>
-                                        <input type="text" name="purchase_company" class="text-uppercase form-control" placeholder="Enter product name" required>
-                                    </div>
 
-                                    <!-- Dimensions -->
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label">Select Product Purchased</label>
-                                        <select class="form-control  text-uppercase" aria-hidden="true" name="product_id" required>
-                                            <option selected>Select product</option>
-                                            <option value="Samsung">Samsung</option>
-                                        </select>
-                                    </div>
+                                        <input
+                                            type="text" class="form-control  text-uppercase" name="product" id="product" list="products" placeholder="Type or select a product" required>
 
+                                        <datalist id="products">
+                                            <?php foreach ($prod as $product): ?>
+                                                <option value="<?= htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8') ?>">
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </datalist>
+                                    </div>
                                     <!-- Unit Price -->
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Unit Price</label>
