@@ -1,3 +1,7 @@
+<?php
+$prod = $sys->fetchProducts();
+
+?>
 <div class="container-fluid">
 
     <!-- Page Title -->
