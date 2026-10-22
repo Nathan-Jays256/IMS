@@ -34,6 +34,11 @@ $prod = $sys->fetchProducts();
                                         </datalist>
                                     </div>
                                     <!-- Unit Price -->
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Supplier</label>
+                                        <input type="text" name="supplier" class="form-control  text-uppercase" placeholder="Enter supplier name" required>
+                                    </div>
+                                    <!-- Unit Price -->
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Unit Price</label>
                                         <input type="number" step="0.01" name="unit_price" class="form-control  text-uppercase" placeholder="0.00" required>
