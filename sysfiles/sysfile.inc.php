@@ -248,6 +248,7 @@ class SysFuncs
             'unit_price' => $this->getValues('unit_price'),
             'quantity_purchased' => $this->getValues('quantity_purchased'),
         ];
+
         $imsModel = new ImsModel($this->conn);
         if ($imsModel->addPurchase($data)) {
             session_start();

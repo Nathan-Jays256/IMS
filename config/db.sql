@@ -51,7 +51,7 @@ create table
     );
 
 create table
-    pruchases (
+    purchases (
         purchase_id varchar(50) primary key,
         product_id varchar(50) not null,
         supplier varchar(255) null,

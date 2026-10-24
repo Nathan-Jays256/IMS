@@ -11,7 +11,7 @@ $prod = $sys->fetchProducts();
                 <div class="card-body">
 
 
-                    <form method="POST" action="<?= BASE_URL ?>add-purchase" id="addPurchaseForm">
+                    <form method="POST" action="<?= BASE_URL ?>config/form_handler.php" id="addPurchaseForm">
 
                         <div class="row">
                             <div class="col-md-10 align-start">
@@ -72,18 +72,18 @@ $prod = $sys->fetchProducts();
                                     <!-- Unit Price -->
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Unit Price</label>
-                                        <input type="number" step="0.01" name="unit_price" class="form-control  text-uppercase" placeholder="0.00" required>
+                                        <input type="text" step="0.01" name="unit_price" class="form-control  text-uppercase" placeholder="0.00" required>
                                     </div>
                                     <!-- Quantity Purchased -->
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Quantity Purchased</label>
-                                        <input type="number" name="quantity_purchased" class="form-control  text-uppercase" placeholder="0.00" required>
+                                        <input type="text" name="quantity_purchased" class="form-control  text-uppercase" placeholder="0.00" required>
                                     </div>
                                 </div>
 
                                 <!-- Buttons -->
                                 <div class="mt-3">
-                                    <input type="hidden" name="action" value="addPurchase">
+                                    <input type="hidden" name="action" value="add_purchase">
                                     <button type="submit" class="btn btn-primary">
                                         Save Purchase
                                     </button>
