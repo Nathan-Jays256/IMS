@@ -239,6 +239,29 @@ class SysFuncs
         }
     }
 
+    function addPurchaseAction()
+    {
+        $data = [
+            'purchase_id' => $this->generateId('PUR', 6),
+            'product' => $this->getValues('product'),
+            'supplier' => $this->getValues('supplier'),
+            'unit_price' => $this->getValues('unit_price'),
+            'quantity_purchased' => $this->getValues('quantity_purchased'),
+        ];
+        $imsModel = new ImsModel($this->conn);
+        if ($imsModel->addPurchase($data)) {
+            session_start();
+            $_SESSION["success"] = true;
+            $_SESSION["message"] = "Purchase added successfully";
+            header('Location: ../pages/add-purchase');
+        } else {
+            session_start();
+            $_SESSION["success"] = true;
+            $_SESSION["message"] = "Error adding purchase: " . $imsModel->conn->error;
+            header('Location: ../pages/add-purchase');
+        }
+    }
+
 
 
     // Fetch Functions here 

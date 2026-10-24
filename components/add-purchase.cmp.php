@@ -11,7 +11,7 @@ $prod = $sys->fetchProducts();
                 <div class="card-body">
 
 
-                    <form method="POST" action="<?= BASE_URL ?>save-product">
+                    <form method="POST" action="<?= BASE_URL ?>add-purchase" id="addPurchaseForm">
 
                         <div class="row">
                             <div class="col-md-10 align-start">
@@ -52,6 +52,7 @@ $prod = $sys->fetchProducts();
 
                                 <!-- Buttons -->
                                 <div class="mt-3">
+                                    <input type="hidden" name="action" value="addPurchase">
                                     <button type="submit" class="btn btn-primary">
                                         Save Purchase
                                     </button>

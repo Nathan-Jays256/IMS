@@ -28,6 +28,13 @@ class ImsModel
         $stmt->bind_param("ssssssss", $data["product_id"], $data["brand_id"], $data["cat_id"], $data["p_name"], $data["description"], $data["dimensions"], $data["quantity"], $data["unit_price"],);
         return $stmt->execute();
     }
+
+    public function addPurchase($data)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO purchases (purchase_id, product_id, supplier, unit_price, quantity_purchased, date_created) VALUES (?, ?, ?, ?, ?, NOW())");
+        $stmt->bind_param("sssss", $data['purchase_id'], $data['product_id'], $data['supplier'], $data['unit_price'], $data['quantity_purchased']);
+        return $stmt->execute();
+    }
     // ====================================Insert Functions here for products, brands, categories, etc.=====================================================
 
     // Delete Functions here for products, brands, categories, etc.
