@@ -49,3 +49,14 @@ create table
         date_updated date,
         FOREIGN KEY (product_id) REFERENCES products (product_id)
     );
+
+create table
+    pruchases (
+        purchase_id varchar(50) primary key,
+        product_id varchar(50) not null,
+        supplier varchar(255) null,
+        quantity varchar(255) not null,
+        purchase_date date not null,
+        date_updated date,
+        FOREIGN KEY (product_id) REFERENCES products (product_id)
+    );

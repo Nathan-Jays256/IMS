@@ -243,7 +243,7 @@ class SysFuncs
     {
         $data = [
             'purchase_id' => $this->generateId('PUR', 6),
-            'product' => $this->getValues('product'),
+            'product_id' => $this->getValues('product_id'),
             'supplier' => $this->getValues('supplier'),
             'unit_price' => $this->getValues('unit_price'),
             'quantity_purchased' => $this->getValues('quantity_purchased'),
