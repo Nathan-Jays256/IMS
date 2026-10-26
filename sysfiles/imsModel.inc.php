@@ -43,7 +43,11 @@ class ImsModel
 
         try {
             // 1. Insert the purchase record
-            $stmt = $this->conn->prepare("INSERT INTO purchases (purchase_id, product_id, supplier, quantity, purchase_date) VALUES (?, ?, ?, ?, NOW())");
+            $stmt = $this->conn->prepare(
+                "INSERT INTO purchases
+            (purchase_id, product_id, supplier, quantity, purchase_date)
+            VALUES (?, ?, ?, ?, NOW())"
+            );
 
             $stmt->bind_param(
                 "sssi",
@@ -59,10 +63,19 @@ class ImsModel
 
             $stmt->close();
 
-            // 2. Retrieve and lock the current product quantity
-            $stmt = $this->conn->prepare("SELECT quantity FROM products WHERE product_id = ? FOR UPDATE");
+            // 2. Retrieve and lock the product record
+            $stmt = $this->conn->prepare(
+                "SELECT quantity, price
+             FROM products
+             WHERE product_id = ?
+             FOR UPDATE"
+            );
+
             $stmt->bind_param("s", $data['product_id']);
-            $stmt->execute();
+
+            if (!$stmt->execute()) {
+                throw new Exception("Failed to retrieve product.");
+            }
 
             $result = $stmt->get_result();
             $product = $result->fetch_assoc();
@@ -72,17 +85,50 @@ class ImsModel
                 throw new Exception("Product not found.");
             }
 
-            // 3. Add the purchased quantity to the existing quantity
-            $newQuantity = (int) $product['quantity'] + (int) $data['quantity_purchased'];
-            $stmt = $this->conn->prepare("UPDATE products SET quantity = ? WHERE product_id = ?");
-            $stmt->bind_param("is", $newQuantity, $data['product_id']);
+            // 3. Update stock quantity
+            $newQuantity = (int) $product['quantity']
+                + (int) $data['quantity_purchased'];
+
+            $stmt = $this->conn->prepare(
+                "UPDATE products
+             SET quantity = ?
+             WHERE product_id = ?"
+            );
+
+            $stmt->bind_param(
+                "is",
+                $newQuantity,
+                $data['product_id']
+            );
+
             if (!$stmt->execute()) {
                 throw new Exception("Failed to update product quantity.");
             }
 
             $stmt->close();
 
-            // Commit both changes
+            // 4. Update product price if the purchase price differs
+            if ((float) $product['price'] != (float) $data['purchase_price']) {
+                $stmt = $this->conn->prepare(
+                    "UPDATE products
+                 SET price = ?
+                 WHERE product_id = ?"
+                );
+
+                $stmt->bind_param(
+                    "ds",
+                    $data['purchase_price'],
+                    $data['product_id']
+                );
+
+                if (!$stmt->execute()) {
+                    throw new Exception("Failed to update product price.");
+                }
+
+                $stmt->close();
+            }
+
+            // 5. Commit all changes
             $this->conn->commit();
 
             return true;
@@ -94,6 +140,8 @@ class ImsModel
             return false;
         }
     }
+
+
     // ====================================Insert Functions here for products, brands, categories, etc.=====================================================
 
     // Delete Functions here for products, brands, categories, etc.
