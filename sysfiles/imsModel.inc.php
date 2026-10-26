@@ -116,7 +116,7 @@ class ImsModel
                 );
 
                 $stmt->bind_param(
-                    "ds",
+                    "ss",
                     $data['purchase_price'],
                     $data['product_id']
                 );
