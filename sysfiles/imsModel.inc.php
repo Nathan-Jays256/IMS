@@ -43,11 +43,7 @@ class ImsModel
 
         try {
             // 1. Insert the purchase record
-            $stmt = $this->conn->prepare(
-                "INSERT INTO purchases
-            (purchase_id, product_id, supplier, quantity, purchase_date)
-            VALUES (?, ?, ?, ?, NOW())"
-            );
+            $stmt = $this->conn->prepare("INSERT INTO purchases (purchase_id, product_id, supplier, quantity, purchase_date) VALUES (?, ?, ?, ?, NOW())");
 
             $stmt->bind_param(
                 "sssi",
@@ -64,11 +60,7 @@ class ImsModel
             $stmt->close();
 
             // 2. Retrieve and lock the current product quantity
-            $stmt = $this->conn->prepare(
-                "SELECT quantity FROM products
-             WHERE prod_id = ? FOR UPDATE"
-            );
-
+            $stmt = $this->conn->prepare("SELECT quantity FROM products WHERE prod_id = ? FOR UPDATE");
             $stmt->bind_param("s", $data['product_id']);
             $stmt->execute();
 
@@ -81,15 +73,9 @@ class ImsModel
             }
 
             // 3. Add the purchased quantity to the existing quantity
-            $newQuantity = (int) $product['quantity']
-                + (int) $data['quantity_purchased'];
-
-            $stmt = $this->conn->prepare(
-                "UPDATE products SET quantity = ? WHERE prod_id = ?"
-            );
-
+            $newQuantity = (int) $product['quantity'] + (int) $data['quantity_purchased'];
+            $stmt = $this->conn->prepare("UPDATE products SET quantity = ? WHERE prod_id = ?");
             $stmt->bind_param("is", $newQuantity, $data['product_id']);
-
             if (!$stmt->execute()) {
                 throw new Exception("Failed to update product quantity.");
             }
