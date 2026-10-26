@@ -304,20 +304,15 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="<?= BASE_URL ?>pages/add-purchase">Add Purchase</a>
                                     </li><!--end nav-item-->
+
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?= BASE_URL ?>pages/edit-purchase">Edit Purchase</a>
-                                    </li><!--end nav-item-->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<?= BASE_URL ?>pages/purchases">All Purchases</a>
+                                        <a class="nav-link" href="<?= BASE_URL ?>pages/purchases">Listed Purchases</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
                                         <a class="nav-link" href="<?= BASE_URL ?>pages/orders">Orders</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?= BASE_URL ?>pages/ecommerce-order-details">Order Details</a>
-                                    </li><!--end nav-item-->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<?= BASE_URL ?>pages/ecommerce-refunds">Refunds</a>
+                                        <a class="nav-link" href="<?= BASE_URL ?>pages/ecommerce-refunds">Returns</a>
                                     </li><!--end nav-item-->
                                 </ul><!--end nav-->
                             </div>
