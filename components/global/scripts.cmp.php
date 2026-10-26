@@ -5,7 +5,7 @@
 <script src="<?= BASE_URL ?>assets/js/pages/datatable.init.js"></script>
 <script src="<?= BASE_URL ?>assets/js/app.js"></script>
 <script>
-    setTimeout(function () {
+    setTimeout(function() {
         let alertBox = document.getElementById('autoAlert');
 
         if (alertBox) {

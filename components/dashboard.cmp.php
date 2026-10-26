@@ -1,43 +1,37 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 col-lg-6">
+    <div class="row justify-content-center">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h4 class="card-title">Card title & Dropdown</h4>
-                        </div><!--end col-->
-                        <div class="col-auto">
-                            <div class="dropdown">
-                                <a href="#" class="btn bt btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icofont-calendar fs-5 me-1"></i> This Year<i class="las la-angle-down ms-1"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="#">Today</a>
-                                    <a class="dropdown-item" href="#">Last Week</a>
-                                    <a class="dropdown-item" href="#">Last Month</a>
-                                    <a class="dropdown-item" href="#">This Year</a>
-                                </div>
-                            </div>
+                            <h4 class="card-title">Stocks Available</h4>
                         </div><!--end col-->
                     </div> <!--end row-->
                 </div><!--end card-header-->
                 <div class="card-body pt-0">
-
-                </div><!--end card-body-->
-            </div><!--end card-->
-        </div> <!--end col-->
-        <div class="col-md-12 col-lg-6">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h4 class="card-title">Card Title</h4>
-                        </div><!--end col-->
-                    </div> <!--end row-->
-                </div><!--end card-header-->
-                <div class="card-body pt-0">
-
+                    <div class="table-responsive">
+                        <table class="table datatable" id="datatable_2">
+                            <thead class="">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Brand</th>
+                                    <th>Qty Available</th>
+                                    <th data-type="date" data-format="YYYY/DD/MM">Recent purchase date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Unity Pugh</td>
+                                    <td>9958</td>
+                                    <td>Curicó</td>
+                                    <td>2005/02/11</td>
+                                    <td>37%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
+                    </div>
                 </div><!--end card-body-->
             </div><!--end card-->
         </div> <!--end col-->
