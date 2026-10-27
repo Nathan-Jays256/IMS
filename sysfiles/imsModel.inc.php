@@ -55,7 +55,7 @@ class ImsModel
                 $data['product_id'],
                 $data['supplier'],
                 $data['quantity_purchased'],
-                $data['price']
+                $data['unit_price']
             );
 
             if (!$stmt->execute()) {
@@ -109,11 +109,11 @@ class ImsModel
             $stmt->close();
 
             // 4. Update product price if the purchase price differs
-            if ((float) $product['price'] != (float) $data['purchase_price']) {
+            if ((float) $product['price'] != (float) $data['unit_price']) {
                 $stmt = $this->conn->prepare("UPDATE products SET price = ? WHERE product_id = ?");
                 $stmt->bind_param(
                     "ss",
-                    $data['purchase_price'],
+                    $data['unit_price'],
                     $data['product_id']
                 );
 
