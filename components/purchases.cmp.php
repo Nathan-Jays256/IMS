@@ -16,7 +16,7 @@
                                 <th>Product Name</th>
                                 <th>Supplier</th>
                                 <th>Quantity</th>
-                                <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
+                                <th data-type="date" data-format="YYYY/DD/MM">Purchase Date</th>
                                 <th>Completion</th>
                             </tr>
                         </thead>
