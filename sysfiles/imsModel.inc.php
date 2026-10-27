@@ -45,7 +45,7 @@ class ImsModel
             // 1. Insert the purchase record
             $stmt = $this->conn->prepare(
                 "INSERT INTO purchases
-            (purchase_id, product_id, supplier, quantity, purchase_date)
+            (purchase_id, product_id, supplier, quantity, price, purchase_date)
             VALUES (?, ?, ?, ?, NOW())"
             );
 
@@ -54,7 +54,8 @@ class ImsModel
                 $data['purchase_id'],
                 $data['product_id'],
                 $data['supplier'],
-                $data['quantity_purchased']
+                $data['quantity_purchased'],
+                $data['price']
             );
 
             if (!$stmt->execute()) {
@@ -109,12 +110,7 @@ class ImsModel
 
             // 4. Update product price if the purchase price differs
             if ((float) $product['price'] != (float) $data['purchase_price']) {
-                $stmt = $this->conn->prepare(
-                    "UPDATE products
-                 SET price = ?
-                 WHERE product_id = ?"
-                );
-
+                $stmt = $this->conn->prepare("UPDATE products SET price = ? WHERE product_id = ?");
                 $stmt->bind_param(
                     "ss",
                     $data['purchase_price'],
