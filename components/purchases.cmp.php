@@ -27,11 +27,11 @@ $purchase = $sys->fetchPurchases();
                         <tbody>
                             <?php foreach ($purchase as $p): ?>
                             <tr>
-                                <td><?php echo $product['product_name']; ?></td>
-                                <td><?php echo $product['supplier']; ?></td>
-                                <td><?php echo $product['product_quantity']; ?></td>
-                                <td><?php echo $product['price']; ?></td>
-                                <td><?php echo $product['purchase_date']; ?></td>
+                                <td><?php echo $p['product_name']; ?></td>
+                                <td><?php echo $p['supplier']; ?></td>
+                                <td><?php echo $p['product_quantity']; ?></td>
+                                <td><?php echo $p['price']; ?></td>
+                                <td><?php echo $p['purchase_date']; ?></td>
                             </tr>
                         </tbody>
                     </table>
