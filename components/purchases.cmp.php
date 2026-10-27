@@ -1,5 +1,5 @@
 <?php
-$prod = $sys->fetchProducts();
+$purchase = $sys->fetchPurchases();
 
 ?>
 <div class="row justify-content-center">
@@ -25,12 +25,13 @@ $prod = $sys->fetchProducts();
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($purchase as $p): ?>
                             <tr>
-                                <td>Unity Pugh</td>
-                                <td>9958</td>
-                                <td>Curicó</td>
-                                <td>2005/02/11</td>
-                                <td>37%</td>
+                                <td><?php echo $product['product_name']; ?></td>
+                                <td><?php echo $product['supplier']; ?></td>
+                                <td><?php echo $product['product_quantity']; ?></td>
+                                <td><?php echo $product['price']; ?></td>
+                                <td><?php echo $product['purchase_date']; ?></td>
                             </tr>
                         </tbody>
                     </table>
