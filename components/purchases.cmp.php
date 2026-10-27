@@ -28,14 +28,16 @@ $purchase = $sys->fetchPurchases();
                         </thead>
                         <tbody>
                             <?php foreach ($purchase as $p): ?>
-                            <tr>
-                                <td><?php echo $p['product_name']; ?></td>
-                                <td><?php echo $p['supplier']; ?></td>
-                                <td><?php echo $p['quantity']; ?></td>
-                                <td><?php echo $p['price']; ?></td>
-                                <td><?php echo $p['purchase_date']; ?></td>
-                                <td><?php echo $p['product_quantity']; ?></td>
-                            </tr>
+                                <tr>
+                                    <td><?php echo $p['product_name']; ?></td>
+                                    <td><?php echo $p['supplier']; ?></td>
+                                    <td><?php echo $p['quantity']; ?></td>
+                                    <td><?php echo $p['price']; ?></td>
+                                    <td><?php echo $p['purchase_date']; ?></td>
+                                    <td><?php echo $p['product_quantity']; ?></td>
+                                </tr>
+
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                     <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
