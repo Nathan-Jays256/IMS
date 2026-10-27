@@ -43,14 +43,10 @@ class ImsModel
 
         try {
             // 1. Insert the purchase record
-            $stmt = $this->conn->prepare(
-                "INSERT INTO purchases
-            (purchase_id, product_id, supplier, quantity, price, purchase_date)
-            VALUES (?, ?, ?, ?, NOW())"
-            );
+            $stmt = $this->conn->prepare("INSERT INTO purchases (purchase_id, product_id, supplier, quantity, price, purchase_date) VALUES (?, ?, ?, ?, NOW())");
 
             $stmt->bind_param(
-                "sssi",
+                "sssis",
                 $data['purchase_id'],
                 $data['product_id'],
                 $data['supplier'],
