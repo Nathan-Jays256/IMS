@@ -13,7 +13,7 @@
                     <table class="table datatable" id="datatable_2">
                         <thead class="">
                             <tr>
-                                <th>Name</th>
+                                <th>Product Name</th>
                                 <th>Ext.</th>
                                 <th>City</th>
                                 <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
