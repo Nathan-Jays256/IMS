@@ -219,7 +219,7 @@ class ImsModel
     }
     function getAllPurchases()
     {
-        $sql = "SELECT p.*, pr.name as product_name FROM purchases p LEFT JOIN products pr ON p.product_id = pr.product_id";
+        $sql = "SELECT p.*, pr.name as product_name, pr.quantity as product_quantity FROM purchases p LEFT JOIN products pr ON p.product_id = pr.product_id";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
