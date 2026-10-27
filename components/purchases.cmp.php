@@ -19,9 +19,11 @@ $purchase = $sys->fetchPurchases();
                             <tr>
                                 <th>Product Name</th>
                                 <th>Supplier</th>
-                                <th>Quantity</th>
+                                <th>Quantity Purchased</th>
                                 <th>Price</th>
                                 <th data-type="date" data-format="YYYY/DD/MM">Purchase Date</th>
+                                <th>Available Stock</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -29,9 +31,10 @@ $purchase = $sys->fetchPurchases();
                             <tr>
                                 <td><?php echo $p['product_name']; ?></td>
                                 <td><?php echo $p['supplier']; ?></td>
-                                <td><?php echo $p['product_quantity']; ?></td>
+                                <td><?php echo $p['quantity']; ?></td>
                                 <td><?php echo $p['price']; ?></td>
                                 <td><?php echo $p['purchase_date']; ?></td>
+                                <td><?php echo $p['product_quantity']; ?></td>
                             </tr>
                         </tbody>
                     </table>
