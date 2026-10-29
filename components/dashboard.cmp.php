@@ -19,11 +19,11 @@
                             <thead class="text-center">
                                 <tr class="text-center">
                                     <th>Product Name</th>
-                                    <th>Supplier</th>
-                                    <th>Quantity Purchased</th>
+                                    <th>Desc</th>
+                                    <th>Brand</th>
+                                    <th>Total Stock</th>
                                     <th>Price</th>
-                                    <th data-type="date" data-format="YYYY/DD/MM">Purchase Date</th>
-                                    <th>Available Stock</th>
+                                    <th data-type="date" data-format="YYYY/DD/MM">Last Purchase Date</th>
 
                                 </tr>
                             </thead>
