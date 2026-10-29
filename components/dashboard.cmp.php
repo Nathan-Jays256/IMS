@@ -34,7 +34,6 @@
                                         <td><?php echo $p['brand']; ?></td>
                                         <td><?php echo $p['quantity']; ?></td>
                                         <td><?php echo $p['price']; ?></td>
-                                        <td><?php echo $p['product_quantity']; ?></td>
                                         <td><?php echo $p['purchase_date']; ?></td>
                                     </tr>
 
