@@ -1,7 +1,6 @@
 <div class="container-fluid">
     <?php
-    $purchase = $sys->fetchPurchases();
-
+    $products = $sys->fetchProducts();
     ?>
     <div class="row justify-content-center">
         <div class="col-12">
@@ -28,7 +27,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($purchase as $p): ?>
+                                <?php foreach ($products as $p): ?>
                                     <tr class="text-center">
                                         <td><?php echo $p['name']; ?></td>
                                         <td><?php echo $p['description']; ?></td>
