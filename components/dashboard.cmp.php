@@ -30,7 +30,7 @@
                             <tbody>
                                 <?php foreach ($purchase as $p): ?>
                                     <tr class="text-center">
-                                        <td><?php echo $p['product_name']; ?></td>
+                                        <td><?php echo $p['name']; ?></td>
                                         <td><?php echo $p['supplier']; ?></td>
                                         <td><?php echo $p['quantity']; ?></td>
                                         <td><?php echo $p['price']; ?></td>
