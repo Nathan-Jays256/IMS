@@ -106,7 +106,7 @@ class ImsModel
 
             // 4. Update product price if the purchase price differs
             if ((float) $product['price'] != (float) $data['unit_price']) {
-                $stmt = $this->conn->prepare("UPDATE products SET price = ? WHERE product_id = ?");
+                $stmt = $this->conn->prepare("UPDATE products SET price = ? AND date_restocked = NOW() WHERE product_id = ?");
                 $stmt->bind_param(
                     "ss",
                     $data['unit_price'],
