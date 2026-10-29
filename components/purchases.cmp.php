@@ -15,7 +15,7 @@ $purchase = $sys->fetchPurchases();
             <div class="card-body pt-0">
                 <div class="table-responsive">
                     <table class="table datatable" id="datatable_2">
-                        <thead class="">
+                        <thead class="text-center">
                             <tr class="text-center">
                                 <th>Product Name</th>
                                 <th>Supplier</th>
