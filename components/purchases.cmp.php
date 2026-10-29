@@ -16,7 +16,7 @@ $purchase = $sys->fetchPurchases();
                 <div class="table-responsive">
                     <table class="table datatable" id="datatable_2">
                         <thead class="">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Product Name</th>
                                 <th>Supplier</th>
                                 <th>Quantity Purchased</th>
@@ -28,7 +28,7 @@ $purchase = $sys->fetchPurchases();
                         </thead>
                         <tbody>
                             <?php foreach ($purchase as $p): ?>
-                                <tr>
+                                <tr class="text-center">
                                     <td><?php echo $p['product_name']; ?></td>
                                     <td><?php echo $p['supplier']; ?></td>
                                     <td><?php echo $p['quantity']; ?></td>
