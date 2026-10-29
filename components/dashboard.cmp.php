@@ -1,33 +1,44 @@
 <div class="container-fluid">
+    <?php
+    $purchase = $sys->fetchPurchases();
+
+    ?>
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h4 class="card-title">Stocks Available</h4>
+                            <h4 class="card-title">All Purchases</h4>
                         </div><!--end col-->
                     </div> <!--end row-->
                 </div><!--end card-header-->
                 <div class="card-body pt-0">
                     <div class="table-responsive">
                         <table class="table datatable" id="datatable_2">
-                            <thead class="">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Brand</th>
-                                    <th>Qty Available</th>
-                                    <th data-type="date" data-format="YYYY/DD/MM">Recent purchase date</th>
+                            <thead class="text-center">
+                                <tr class="text-center">
+                                    <th>Product Name</th>
+                                    <th>Supplier</th>
+                                    <th>Quantity Purchased</th>
+                                    <th>Price</th>
+                                    <th data-type="date" data-format="YYYY/DD/MM">Purchase Date</th>
+                                    <th>Available Stock</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Unity Pugh</td>
-                                    <td>9958</td>
-                                    <td>Curicó</td>
-                                    <td>2005/02/11</td>
-                                    <td>37%</td>
-                                </tr>
+                                <?php foreach ($purchase as $p): ?>
+                                    <tr class="text-center">
+                                        <td><?php echo $p['product_name']; ?></td>
+                                        <td><?php echo $p['supplier']; ?></td>
+                                        <td><?php echo $p['quantity']; ?></td>
+                                        <td><?php echo $p['price']; ?></td>
+                                        <td><?php echo $p['purchase_date']; ?></td>
+                                        <td><?php echo $p['product_quantity']; ?></td>
+                                    </tr>
+
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                         <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
