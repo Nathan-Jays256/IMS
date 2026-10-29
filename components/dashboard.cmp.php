@@ -34,7 +34,7 @@
                                         <td><?php echo $p['brand']; ?></td>
                                         <td><?php echo $p['quantity']; ?></td>
                                         <td><?php echo $p['price']; ?></td>
-                                        <td><?php echo $p['purchase_date']; ?></td>
+                                        <td><?php echo $p['date_restocked']; ?></td>
                                     </tr>
 
                                 <?php endforeach; ?>
