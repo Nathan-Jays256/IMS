@@ -29,7 +29,7 @@
                             <tbody>
                                 <?php foreach ($products as $p): ?>
                                     <tr class="text-left">
-                                        <td><a href="product/<?= $p['product_id']; ?>" class="prdt_link"><?php echo $p['name']; ?></a></td>
+                                        <td><a href="pages/product/<?= $p['product_id']; ?>" class="prdt_link"><?php echo $p['name']; ?></a></td>
                                         <td><?php echo $p['description']; ?></td>
                                         <td><?php echo $p['brand_name']; ?></td>
                                         <td><?php echo $p['quantity']; ?></td>
