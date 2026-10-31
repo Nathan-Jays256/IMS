@@ -304,10 +304,9 @@ class SysFuncs
         $imsModel = new ImsModel($this->conn);
         return $imsModel->getAllPurchases();
     }
-    function fetchProductPurchases()
+    function fetchProductPurchases($product_id)
     {
         $imsModel = new ImsModel($this->conn);
-        return $imsModel->getProductPurchases();
+        return $imsModel->getProductPurchases($product_id);
     }
-
 }
