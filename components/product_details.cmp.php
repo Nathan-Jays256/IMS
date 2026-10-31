@@ -1,5 +1,5 @@
 <?php
-$purchase = $sys->fetchPurchases();
+$purchase = $sys->fetchProductPurchases();
 
 ?>
 <div class="row justify-content-center">
