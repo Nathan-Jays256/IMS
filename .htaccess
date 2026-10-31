@@ -10,6 +10,7 @@ SetEnv BASE_URL /IMS/
 # -----------------------------------
 RewriteRule ^pages/edit-brand/([^/]+)/?$ pages/edit-brand.php?id=$1 [L,QSA]
 RewriteRule ^pages/edit-category/([^/]+)/?$ pages/edit-category.php?id=$1 [L,QSA]
+RewriteRule ^product/([^/]+)/?$ product/product_details.php?id=$1 [L,QSA]
 
 # -----------------------------------
 # 1. Default page (/IMS/)
