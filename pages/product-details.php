@@ -1,6 +1,6 @@
 <?php
 
-$page_title = "All Purchases";
+$page_title = "All Product Details";
 $page_details = "components/product-purchases.cmp.php";
 
 require_once("../config/app.php");
