@@ -230,5 +230,29 @@ class ImsModel
         return $purchases;
     }
 
+    // Fetch purchases for a specific product
+    public function getProductPurchases($productId)
+    {
+        $sql = "SELECT 
+                p.*,
+                pr.name AS product_name,
+                pr.quantity AS product_quantity
+            FROM purchases p
+            LEFT JOIN products pr 
+                ON p.product_id = pr.product_id
+            WHERE p.product_id = ?
+            ORDER BY p.purchase_date DESC";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $productId);
+        $stmt->execute();
+
+        $purchases = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        $stmt->close();
+
+        return $purchases;
+    }
+
     // =========================================================================================
 }
