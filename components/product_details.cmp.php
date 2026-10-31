@@ -1,4 +1,5 @@
 <?php
+$product_id = $_GET['product_id'];
 $purchases = $sys->fetchProductPurchases($product_id);
 
 ?>
