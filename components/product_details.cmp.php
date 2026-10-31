@@ -1,5 +1,5 @@
 <?php
-$purchase = $sys->fetchProductPurchases();
+$purchases = $sys->fetchProductPurchases();
 
 ?>
 <div class="row justify-content-center">
@@ -27,7 +27,7 @@ $purchase = $sys->fetchProductPurchases();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($purchase as $p): ?>
+                            <?php foreach ($purchases as $p): ?>
                                 <tr class="text-center">
                                     <td><?php echo $p['product_name']; ?></td>
                                     <td><?php echo $p['supplier']; ?></td>
