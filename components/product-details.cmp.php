@@ -18,7 +18,6 @@ $purchases = $sys->fetchProductPurchases($product_id);
                     <table class="table datatable" id="datatable_2">
                         <thead class="text-center">
                             <tr class="text-center">
-                                <th>Product Name</th>
                                 <th>Supplier</th>
                                 <th>Quantity Purchased</th>
                                 <th>Price</th>
@@ -30,7 +29,6 @@ $purchases = $sys->fetchProductPurchases($product_id);
                         <tbody>
                             <?php foreach ($purchases as $p): ?>
                                 <tr class="text-center">
-                                    <td><?php echo $p['product_name']; ?></td>
                                     <td><?php echo $p['supplier']; ?></td>
                                     <td><?php echo $p['quantity']; ?></td>
                                     <td><?php echo $p['price']; ?></td>
